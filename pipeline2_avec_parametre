@@ -11,19 +11,35 @@ cases?’)
 branch’)
 password(name: ‘SONAR_SERVER_PWD’, description: ‘Enter SONAR password’)
     }
-    stages {
-        stage('Printing name') {
-            steps {
-                script {
-                    def name = "${params.NAME}"
-                    def gender = "${params.GENDER}"
-                    if(gender == "Male") {
-                        echo "Mr. $name"    
-                    } else {
-                        echo "Mrs. $name"
-                    }
-                }
-            }
+   stages {
+    stage('build') {
+      steps {
+        script {
+          echo "Checking de la coque"
+          sleep 10
+          echo "Integrité de la coque à 100%"
         }
-   }
+      }
+    }
+    stage('Test') {
+      steps {
+        script {
+          echo "Verification des équipement de navigation"
+          sleep 10
+          echo "Léger disfonctionnement de la carte numerique" 
+        }
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        script {
+          echo "Verification des equipements de communication"
+          sleep 10
+          echo "Test radio ok. "    
+        }
+      }
+    }
+}
+
 }
